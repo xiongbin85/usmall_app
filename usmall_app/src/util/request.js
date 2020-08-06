@@ -25,3 +25,31 @@ export const requestLogin = (params) => {
         data: qs.stringify(params)
     })
 }
+//首页分类信息
+// export const requestCate = () => {
+//     return axios({
+//         url: "api/getcate",
+//         method: "get",
+//     })
+// }
+//首页轮播图
+export const requestBanner = () => {
+    return axios({
+        url: "api/getbanner",
+        method: "get",
+    })
+}
+//限时秒杀信息
+// export const requestSeckill = () => {
+//     return axios({
+//         url: "api/getseckill",
+//         method: "get",
+//     })
+// }
+//首页商品信息
+export const requestIndexGoods = () => {
+    return axios({
+        url: "api/getindexgoods",
+        method: "get",
+    })
+}

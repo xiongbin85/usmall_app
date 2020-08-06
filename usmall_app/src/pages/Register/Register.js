@@ -24,7 +24,7 @@ export default class Register extends Component {
     }
     register() {
         requestRegister(this.state.user).then(res => {
-            if (res.data.code == 200) {
+            if (res.data.code === 200) {
                 Toast.info("注册成功")
                 this.props.history.push("/login")
             } else {

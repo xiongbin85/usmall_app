@@ -1,0 +1,77 @@
+.index{
+    padding-bottom: 1rem;
+}
+.index footer {
+    display: flex;
+    width: 100vw;
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.index footer div {
+    flex: 1;
+    text-align: center;
+}
+
+.index footer div a {
+    line-height: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.index footer div a i {
+    display: inline-block;
+    width: 0.43rem;
+    height: 0.38rem;
+    background: url("../../assets/img/tab_home_nor.png") no-repeat;
+    background-size: contain;
+    margin-left: 0.7rem;
+    margin-top: 0.2rem;
+}
+
+.index footer div a.active i {
+    background: url("../../assets/img/tab_home_hig.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a i.list {
+    background: url("../../assets/img/tab_menu_nor.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a.active i.list {
+    background: url("../../assets/img/tab_menu_hig.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a i.cart {
+    background: url("../../assets/img/tab_shopping_nor.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a.active i.cart {
+    background: url("../../assets/img/tab_shopping_hig.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a i.mine {
+    background: url("../../assets/img/tab_me_nor.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a.active i.mine {
+    background: url("../../assets/img/tab_me_hig.png") no-repeat;
+    background-size: contain;
+}
+
+.index footer div a span {
+    flex: 1;
+    line-height: 0.6rem;
+}
+
+.index footer div a.active span {
+    color: orange;
+}

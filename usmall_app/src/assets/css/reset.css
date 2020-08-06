@@ -10,7 +10,7 @@ i,em{font-style:normal;}
 table{border-collapse: collapse;}
 th{font-weight: normal;text-align: left;vertical-align: top;}
 td{text-align: left;vertical-align: top;}
-input{margin:0;padding:0;border:none; font-family:inherit;outline: none; /*去掉输入框的蓝色轮廓框*/}
+input{margin:0;padding:0;border:none; font-family:inherit;outline: none; /*去掉输入框的蓝色轮廓框*/background: #F5F5F9;}
 textarea{resize:none;/* 禁止用户重置元素大小 */overflow:auto;font-family: inherit;outline: none;}
 .clearfix::after{content: '';display: block;clear: both;}
 .clearfix{*zoom: 1;}

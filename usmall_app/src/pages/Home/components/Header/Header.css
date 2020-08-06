@@ -1,0 +1,14 @@
+.header{
+    padding-top: 0.2rem;
+    height: 0.8rem;
+}
+.header img{
+    margin-left: 0.2rem;
+}
+.header input{
+    background: #ccc;
+    height: 0.6rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    margin-left: 0.5rem;
+}
