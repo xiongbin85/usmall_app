@@ -1,0 +1,66 @@
+.login header {
+    height: 1rem;
+    background-color: orange;
+    color: #fff;
+    font-size: 0.4rem;
+}
+
+.login header h3 {
+    line-height: 1rem;
+    float: left;
+    margin-left: 3.5rem;
+}
+
+.login header a {
+    color: #fff;
+    line-height: 1rem;
+    float: right;
+    margin-right: 0.4rem;
+}
+
+.login main {
+    margin-top: 2.5rem;
+    padding: 0 0.6rem;
+    /* border: 1px solid orange; */
+    text-align: center;
+    font-size: 0.3rem;
+    color: #333;
+}
+
+.login main .login-tel {
+
+    border-bottom: 1px solid #ccc;
+}
+
+.login main .login-tel input {
+    height: 1rem;
+    width: 5rem;
+    background-color: #F5F5F9;
+}
+
+.login main .login-pass {
+
+    border-bottom: 1px solid #ccc;
+}
+
+.login main .login-pass input {
+    height: 1rem;
+    width: 5rem;
+    background-color: #F5F5F9;
+}
+
+.login main p {
+    text-align: right;
+    margin-top: 0.4rem;
+}
+
+.login main button {
+    width: 100%;
+    height: 1rem;
+    background: orange;
+    border: none;
+    color: #fff;
+    font-size: 0.4rem;
+    margin-top: 0.5rem;
+    border-radius: 0.2rem;
+}
