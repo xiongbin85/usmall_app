@@ -3,41 +3,17 @@ import Header from "./components/Header/Header"
 import Banner from "./components/Banner/Banner"
 import List from "./components/List/List"
 import Time from "./components/Time/Time"
-import { requestBanner, requestIndexGoods } from '../../util/request'
-export default class Home extends Component {
-    constructor() {
-        super()
-        this.state = {
-            banner: [],
-            proInfo: []
-        }
-    }
+import { connect } from 'react-redux'
+import { proInfo, requestProInfoAction, requestBannerAction, banner } from "../../store"
+class Home extends Component {
     componentDidMount() {
         //轮播图
-        requestBanner().then(res => {
-            res.data.list.forEach(item => {
-                item.img = this.$img + item.img
-            })
-            let arr = res.data.list
-            // console.log(arr);
-            this.setState({
-                banner: arr
-            })
-        })
+        this.props.requestBanner()
         //首页商品信息
-        requestIndexGoods().then(res => {
-            res.data.list[0].content.forEach(item => {
-                item.img = this.$img + item.img
-            })
-            let arr = res.data.list[0].content
-            // console.log(arr);
-            this.setState({
-                proInfo: arr
-            })
-        })
+        this.props.requestProInfo()
     }
     render() {
-        let { banner, proInfo } = this.state
+        let { proInfo, banner } = this.props
         return (
             <div>
                 <Header></Header>
@@ -48,3 +24,18 @@ export default class Home extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    // console.log(state);
+    return {
+        proInfo: proInfo(state),
+        banner: banner(state)
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        requestProInfo: () => dispatch(requestProInfoAction()),
+        requestBanner: () => dispatch(requestBannerAction())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

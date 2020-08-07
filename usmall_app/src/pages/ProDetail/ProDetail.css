@@ -1,0 +1,188 @@
+.detail {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.detail header {
+    width: 100%;
+    height: 1rem;
+    background-color: orange;
+    color: #fff;
+    font-size: 0.4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.detail header h3 {
+    line-height: 1rem;
+    float: left;
+    margin-left: 2rem;
+}
+
+.detail header a {
+    color: #fff;
+    line-height: 1rem;
+    float: left;
+    margin-left: 0.4rem;
+}
+
+.detail main img {
+    width: 100%;
+    height: 5rem;
+}
+
+.detail main .info {
+    margin-top: 0.3rem;
+    padding: 0 0.4rem;
+    position: relative;
+}
+
+.detail main .info .goodsname {
+    font-size: 0.4rem;
+}
+
+.detail main .info .price {
+    color: red;
+}
+
+.detail main .info .collect {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-left: 1px solid #ccc;
+    position: absolute;
+    right: 0.4rem;
+    top: 0.2rem;
+    padding-left: 0.2rem;
+    text-align: center;
+}
+
+.detail main .info .collect i {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(../../assets/img/cart_on.png);
+    background-size: contain;
+
+}
+
+.detail main .info .collect p {
+    color: red;
+    margin-top: 0.1rem;
+}
+
+.detail main .detail-price {
+    margin-top: 0.4rem;
+    line-height: 0.4rem;
+}
+
+.detail main .detail-price .price {
+    font-size: 0.4rem;
+}
+
+.detail main .detail-price .hot {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.4rem;
+    border: 1px solid orange;
+    color: orange;
+    text-align: center;
+    font-size: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+
+.detail main del {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.35rem;
+}
+
+.detail main .des {
+    margin-top: 0.3rem;
+}
+
+.detail footer {
+    height: 1rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+}
+
+.detail footer .add {
+    width: 2rem;
+    height: 1rem;
+    background: orange;
+    line-height: 1rem;
+    text-align: center;
+    color: #fff;
+    float: right;
+}
+
+.detail .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.detail .mask .con {
+    height: 6rem;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.2rem
+}
+
+.detail .mask .con .img img {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+
+.detail .mask .con .img span {
+    font-size: 0.4rem;
+    margin-left: 0.4rem;
+    margin-top: 0;
+    color: #333;
+}
+
+.detail .mask .con p {
+    font-size: 0.4rem;
+    margin-top: 0.3rem;
+    font-weight: bold;
+}
+
+.detail .mask .con .attr span {
+    display: inline-block;
+    width: 1rem;
+    height: 0.6rem;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 0.6rem;
+    margin-top: 0.3rem;
+    margin-left: 0.3rem;
+    border-radius: 0.2rem;
+}
+
+.detail .mask .con .attr span.active {
+    border: 1px solid orange;
+    color: orange;
+}
+
+.detail .mask .con button {
+    width: 2rem;
+    height: 1rem;
+    background: orange;
+    line-height: 1rem;
+    text-align: center;
+    color: #fff;
+    border: none;
+    margin-top: 0.4rem;
+    margin-left: 2.4rem
+}

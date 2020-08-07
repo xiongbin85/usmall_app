@@ -1,14 +1,20 @@
 import React from 'react'
 import { filterPrice } from "../../../../filter"
 import "./List.css"
-export default function List(props) {
-    let { proInfo } = props
+import {withRouter} from "react-router-dom"
+
+
+function List(props) {
+    let { proInfo } = props;    
+    const getDetail = (id) => {
+        props.history.push("/proDetail/?id=" + id)
+    }
     return (
         <div className="list">
             {
                 proInfo.map(item => {
                     return (
-                        <div key={item.id} className="list-item">
+                        <div key={item.id} className="list-item" onClick={() => getDetail(item.id)}>
                             <div>
                                 <img src={item.img} alt="" />
                             </div>
@@ -24,3 +30,4 @@ export default function List(props) {
         </div>
     )
 }
+export default withRouter(List)

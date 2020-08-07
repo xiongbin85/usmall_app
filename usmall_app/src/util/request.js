@@ -53,3 +53,20 @@ export const requestIndexGoods = () => {
         method: "get",
     })
 }
+//获取一个商品信息
+export const requestDetail = (params) => {
+    return axios({
+        url: "api/getgoodsinfo",
+        method: "get",
+        params
+    })
+}
+
+//添加购物车
+export const requestAddCart = (params) => {
+    return axios({
+        url: "api/cartadd",
+        method: "post",
+        data: qs.stringify(params)
+    })
+}
