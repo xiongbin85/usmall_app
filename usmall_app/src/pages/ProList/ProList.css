@@ -1,0 +1,62 @@
+.proList header {
+    height: 1rem;
+    background-color: orange;
+}
+
+.proList header p {
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #fff;
+}
+
+.proList main {
+    display: flex;
+}
+
+.proList main .proList-left {
+    width: 2rem;
+}
+
+.proList main .proList-rigth {
+    flex: 1;
+}
+
+.proList main .proList-left ul li {
+    height: 0.8rem;
+    border-left: 5px solid #F5F5F9;
+    line-height: 0.8rem;
+    text-align: center;
+}
+
+.proList main .proList-left ul li.active {
+    border-left: 5px solid blue;
+    color: orange;
+}
+
+.proList main .proList-rigth ul li {
+    height: 2rem;
+    width: 2rem;
+    float: left;
+    border: 1px solid #1D84A7;
+    margin-left: 0.4rem;
+    position: relative;
+    margin-top: 0.4rem;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.proList main .proList-rigth ul li img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.proList main .proList-rigth ul li p {
+    width: 100%;
+    text-align: center;
+    line-height: 0.4rem;
+    position: absolute;
+    bottom: 0;
+    background-color: #1D84A7;
+    color: white;
+}

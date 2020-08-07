@@ -4,6 +4,7 @@ import lazyLoad from "../../util/lazyLoad"
 import "./Index.css"
 const Home = lazyLoad(() => import("../Home/Home"))
 const ProList = lazyLoad(() => import("../ProList/ProList"))
+const ProInfo = lazyLoad(() => import("../ProInfo/ProInfo"))
 const Cart = lazyLoad(() => import("../Cart/Cart"))
 const Mine = lazyLoad(() => import("../Mine/Mine"))
 export default class Index extends Component {
@@ -13,6 +14,7 @@ export default class Index extends Component {
                 <Switch>
                     <Route path="/index/home" component={Home}></Route>
                     <Route path="/index/proList" component={ProList}></Route>
+                    <Route path="/index/proInfo" component={ProInfo}></Route>
                     <Route path="/index/cart" component={Cart}></Route>
                     <Route path="/index/mine" component={Mine}></Route>
                     <Redirect to="/index/home"></Redirect>

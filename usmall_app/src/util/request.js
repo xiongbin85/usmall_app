@@ -70,3 +70,18 @@ export const requestAddCart = (params) => {
         data: qs.stringify(params)
     })
 }
+//获取分类树形结构
+export const requestProList = () => {
+    return axios({
+        url: "api/getcatetree",
+        method: "get",
+    })
+}
+//获取分类商品
+export const requestProInfo = (params)=>{
+    return axios({
+        url: "api/getgoods",
+        method: "get",
+        params
+    })
+}

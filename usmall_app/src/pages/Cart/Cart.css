@@ -1,0 +1,11 @@
+.cart header {
+    height: 1rem;
+    background-color: orange;
+}
+
+.cart header p {
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #fff;
+}

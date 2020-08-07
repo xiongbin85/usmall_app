@@ -2,12 +2,13 @@
 import { createStore, applyMiddleware } from "redux"
 //使得action可以异步操作
 import thunk from "redux-thunk"
-import { requestIndexGoods, requestBanner } from "../util/request"
+import { requestIndexGoods, requestBanner, requestProList } from "../util/request"
 
 //初始状态
 const initState = {
     banner: [],
-    proInfo: []
+    proInfo: [],
+    proList: []
 }
 
 //action creators
@@ -41,7 +42,17 @@ export const requestProInfoAction = () => {
         })
     }
 }
-
+//修改商品列表
+const changeProListAction = (arr) => {
+    return { type: "changeProList", list: arr }
+}
+export const requestProListAction = () => {
+    return (dispatch, getState) => {
+        requestProList().then(res => {
+            dispatch(changeProListAction(res.data.list))
+        })
+    }
+}
 //reducer 修改state
 const reducer = (state = initState, action) => {
     switch (action.type) {
@@ -55,6 +66,11 @@ const reducer = (state = initState, action) => {
                 ...state,
                 banner: action.list
             }
+        case "changeProList":
+            return {
+                ...state,
+                proList: action.list
+            }
         default:
             return state;
     }
@@ -64,6 +80,8 @@ const reducer = (state = initState, action) => {
 export const proInfo = (state) => state.proInfo
 //导出轮播图
 export const banner = (state) => state.banner
+//导出商品列表
+export const proList = (state) => state.proList
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

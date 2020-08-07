@@ -1,0 +1,67 @@
+.proInfo {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100vw;
+}
+
+.proInfo header {
+    width: 100vw;
+    height: 1rem;
+    background-color: orange;
+    color: #fff;
+    font-size: 0.4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.proInfo header h3 {
+    line-height: 1rem;
+    float: left;
+    margin-left: 2rem;
+}
+.proInfo header a {
+    color: #fff;
+    line-height: 1rem;
+    float: left;
+    margin-left: 0.4rem;
+}
+.proInfo main{
+    padding: 0 0.2rem;
+}
+.proInfo main ul{
+    width: 100%;
+}
+.proInfo main ul li{
+    width: 100%;
+    height: 2.4rem;
+    display: flex;
+    margin-top: 0.2rem;
+}
+.proInfo main ul li img{
+    width: 2rem;
+    height: 2rem;
+}
+.proInfo main ul li .name{
+    font-size: 0.4rem;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+}
+.proInfo main ul li .price{
+    color: red;
+    font-size: 0.4rem;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+}
+.proInfo main ul li span{
+    display: inline-block;
+    width: 1.6rem;
+    height: 0.8rem;
+    background-color: orange;
+    line-height: 0.8rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.2rem;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+}
