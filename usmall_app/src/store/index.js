@@ -2,17 +2,19 @@
 import { createStore, applyMiddleware } from "redux"
 //使得action可以异步操作
 import thunk from "redux-thunk"
-import { requestIndexGoods, requestBanner, requestProList } from "../util/request"
+import { requestIndexGoods, requestBanner, requestProList, requestCartList } from "../util/request"
+import { Component } from "react"
 
 //初始状态
 const initState = {
     banner: [],
     proInfo: [],
-    proList: []
+    proList: [],
+    cartList: []
 }
 
 //action creators
-//修改轮播图
+//轮播图
 const changeBannerAction = (arr) => {
     return { type: "changeBanner", list: arr }
 }
@@ -27,7 +29,7 @@ export const requestBannerAction = () => {
         })
     }
 }
-//修改首页商品信息
+//首页商品信息
 const changeProInfoAction = (arr) => {
     return { type: "changeProInfo", list: arr }
 }
@@ -42,14 +44,33 @@ export const requestProInfoAction = () => {
         })
     }
 }
-//修改商品列表
+//商品列表
 const changeProListAction = (arr) => {
     return { type: "changeProList", list: arr }
 }
 export const requestProListAction = () => {
     return (dispatch, getState) => {
         requestProList().then(res => {
+            const { proList } = getState()
+            if (proList.length > 0) {
+                return;
+            }
             dispatch(changeProListAction(res.data.list))
+        })
+    }
+}
+//购物车列表
+const getCartListAction = (arr) => {
+    return { type: "getCartList", list: arr }
+}
+export const requestCartListAction = (uid) => {
+    return (dispatch, getState) => {
+        requestCartList({ uid: uid }).then(res => {
+            let list = res.data.list
+            list.forEach(item => {
+                item.img = Component.prototype.$img + item.img
+            })
+            dispatch(getCartListAction(list))
         })
     }
 }
@@ -71,6 +92,11 @@ const reducer = (state = initState, action) => {
                 ...state,
                 proList: action.list
             }
+        case "getCartList":
+            return {
+                ...state,
+                cartList: action.list
+            }
         default:
             return state;
     }
@@ -82,6 +108,8 @@ export const proInfo = (state) => state.proInfo
 export const banner = (state) => state.banner
 //导出商品列表
 export const proList = (state) => state.proList
+//导出购物车列表
+export const cartList = (state) => state.cartList
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

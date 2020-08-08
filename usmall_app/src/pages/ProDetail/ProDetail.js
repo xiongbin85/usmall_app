@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import querystring from "querystring"
 import { requestDetail, requestAddCart } from '../../util/request'
 import "./ProDetail.css"
-import { Link } from "react-router-dom"
 import { filterPrice } from "../../filter"
-import {Toast} from "antd-mobile"
+import { Toast } from "antd-mobile"
 export default class ProDetail extends Component {
     constructor() {
         super()
@@ -27,6 +26,9 @@ export default class ProDetail extends Component {
             this.refs.des.innerHTML = this.state.detail.description;
             // console.log(this.state.detail);
         })
+    }
+    back() {
+        this.props.history.go(-1)
     }
     show() {
         this.setState({
@@ -51,7 +53,7 @@ export default class ProDetail extends Component {
                 this.setState({
                     show: !this.state.show
                 })
-            }else{
+            } else {
                 Toast.info(res.data.msg)
             }
         })
@@ -62,7 +64,7 @@ export default class ProDetail extends Component {
         return (
             <div className="detail">
                 <header>
-                    <Link to="/index/home">返回</Link>
+                    <a onClick={() => this.back()}>返回</a>
                     <h3>商品详情</h3>
                 </header>
                 <main>

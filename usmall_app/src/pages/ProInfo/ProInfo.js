@@ -52,16 +52,17 @@ export default class ProInfo extends Component {
                                     proInfo.length > 0 ?
                                         proInfo.map(item => {
                                             return (
-                                                <li key={item.id}>
-                                                    <div>
-                                                        <img src={item.img} alt="" />
-                                                    </div>
-                                                    <div>
-                                                        <p className="name">{item.goodsname}</p>
-                                                        <p className="price">￥{filterPrice(item.price)}</p>
-                                                        <span>立刻抢购</span>
-                                                    </div>
-                                                </li>
+                                                <Link to={"/proDetail/?id=" + item.id} key={item.id}>
+                                                    <li >
+                                                        <div>
+                                                            <img src={item.img} alt="" />
+                                                        </div>
+                                                        <div>
+                                                            <p className="name">{item.goodsname}</p>
+                                                            <p className="price">￥{filterPrice(item.price)}</p>
+                                                            <span>立刻抢购</span>
+                                                        </div>
+                                                    </li></Link>
                                             )
                                         })
                                         : null

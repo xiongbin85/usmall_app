@@ -78,10 +78,34 @@ export const requestProList = () => {
     })
 }
 //获取分类商品
-export const requestProInfo = (params)=>{
+export const requestProInfo = (params) => {
     return axios({
         url: "api/getgoods",
         method: "get",
         params
+    })
+}
+//购物车列表
+export const requestCartList = (params) => {
+    return axios({
+        url: "api/cartlist",
+        method: "get",
+        params
+    })
+}
+//购物车删除
+export const requestDelCart = (params) => {
+    return axios({
+        url: "api/cartdelete",
+        method: "post",
+        data: qs.stringify(params)
+    })
+}
+//购物车修改
+export const requestEditCart = (params) => {
+    return axios({
+        url: "api/cartedit",
+        method: "post",
+        data: qs.stringify(params)
     })
 }
