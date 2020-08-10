@@ -93,10 +93,7 @@ export const changeOneCheckedAction = (index) => {
 export const requestCartListAction = (uid) => {
     return (dispatch, getState) => {
         requestCartList({ uid: uid }).then(res => {
-            let list = res.data.list
-            if (!list) {
-                return
-            }
+            let list = res.data.list?res.data.list:[]
             list.forEach(item => {
                 item.img = Component.prototype.$img + item.img
                 item.checked = false
