@@ -57,7 +57,7 @@ export const requestProDetailAction = (id) => {
         }
         requestDetail({ id: id }).then(res => {
             let list = res.data.list[0]
-            list.img = Component.prototype.$img + list.img
+            // list.img = Component.prototype.$img + list.img
             list.specsattr = JSON.parse(list.specsattr)
             dispatch(getProDetailAction(list))
         })
@@ -95,7 +95,7 @@ export const requestCartListAction = (uid) => {
         requestCartList({ uid: uid }).then(res => {
             let list = res.data.list?res.data.list:[]
             list.forEach(item => {
-                item.img = Component.prototype.$img + item.img
+                // item.img = Component.prototype.$img + item.img
                 item.checked = false
             })
             dispatch(getCartListAction(list))

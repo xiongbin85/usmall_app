@@ -83,7 +83,7 @@ class Cart extends Component {
                     text: '确定',
                     onPress: () => {
                         requestDelCart({ id: id }).then(res => {
-                            Toast.info(res.data.msg)
+                            Toast.info(res.data.msg,1)
                         })
                         alertInstance.close();
                         let uid = sessionStorage.getItem("uid")

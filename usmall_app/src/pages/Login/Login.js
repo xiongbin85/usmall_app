@@ -24,12 +24,12 @@ export default class Login extends Component {
     login() {
         requestLogin(this.state.user).then(res => {
             if (res.data.code === 200) {
-                Toast.info(res.data.msg)
+                Toast.info(res.data.msg, 1)
                 //console.log(res.data.list);
                 sessionStorage.setItem("uid", res.data.list.uid)
                 this.props.history.push("/index")
             } else {
-                Toast.info(res.data.msg)
+                Toast.info(res.data.msg, 1)
             }
         })
     }

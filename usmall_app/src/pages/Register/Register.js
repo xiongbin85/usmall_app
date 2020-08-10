@@ -26,19 +26,19 @@ export default class Register extends Component {
         let { user } = this.state
         let reg = /^1[3456789]\d{9}$/
         if (user.phone === "" || user.nickname === "" || user.password === "") {
-            Toast.info("输入的内容不能为空")
+            Toast.info("输入的内容不能为空", 1)
             return
         }
         if (!reg.test(user.phone)) {
-            Toast.info("手机号有误，请重新输入")
+            Toast.info("手机号有误，请重新输入", 1)
             return
         }
         requestRegister(this.state.user).then(res => {
             if (res.data.code === 200) {
-                Toast.info("注册成功")
+                Toast.info("注册成功", 1)
                 this.props.history.push("/login")
             } else {
-                Toast.info(res.data.msg)
+                Toast.info(res.data.msg, 1)
             }
         })
     }

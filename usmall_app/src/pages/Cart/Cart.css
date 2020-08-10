@@ -68,12 +68,14 @@
 
 .cart main .item .bottom label.checkbox {
     background: url(../../assets/img/radio_nor.png) no-repeat;
+    background-size: contain;
     height: 0.4rem;
     padding-left: 0.5rem;
 }
 
 .cart main .item .bottom input[type='checkbox'].checkbox:checked+.checkbox {
     background: url(../../assets/img/radio_hig.png) no-repeat;
+    background-size: contain;
 }
 
 .cart main .item .bottom img {
@@ -150,12 +152,14 @@
 
 .cart .cart-foot label.checkAll {
     background: url(../../assets/img/radio_nor.png) no-repeat;
+    background-size: contain;
     height: 0.4rem;
     padding-left: 0.5rem;
 }
 
 .cart .cart-foot input[type='checkbox'].checkAll:checked+.checkAll {
     background: url(../../assets/img/radio_hig.png) no-repeat;
+    background-size: contain;
 }
 
 .cart .cart-foot input[type='checkbox'].edit {
@@ -167,12 +171,14 @@
 
 .cart .cart-foot label.edit {
     background: url(../../assets/img/editor_nor.png) no-repeat;
+    background-size: contain;
     height: 0.4rem;
     padding-left: 0.5rem;
 }
 
 .cart .cart-foot input[type='checkbox'].edit:checked+.edit {
     background: url(../../assets/img/editor_hig.png) no-repeat;
+    background-size: contain;
 }
 .cart .cart-foot .allCount{
     white-space: nowrap;

@@ -23,9 +23,9 @@ export default class ProInfo extends Component {
                     name: name
                 })
             } else {
-                list.forEach(item => {
-                    item.img = this.$img + item.img
-                })
+                // list.forEach(item => {
+                //     item.img = this.$img + item.img
+                // })
                 // console.log(list);
                 this.setState({
                     proInfo: list,

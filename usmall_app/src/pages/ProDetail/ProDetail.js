@@ -49,12 +49,12 @@ class ProDetail extends Component {
             num: 1
         }).then(res => {
             if (res.data.code === 200) {
-                Toast.info(res.data.msg)
+                Toast.info(res.data.msg,1)
                 this.setState({
                     show: !this.state.show
                 })
             } else {
-                Toast.info(res.data.msg)
+                Toast.info(res.data.msg,1)
             }
         })
 
