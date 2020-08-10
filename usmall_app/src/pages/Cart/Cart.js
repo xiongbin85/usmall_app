@@ -36,7 +36,6 @@ class Cart extends Component {
     //单选
     selectOne(index) {
         this.props.changeOneChecked(index)
-        console.log(this.props.cartList);
         let bool = this.props.cartList.every(item => item.checked)
         console.log(bool);
         this.setState({
@@ -44,13 +43,18 @@ class Cart extends Component {
         })
     }
     //减
-    reduce(id) {
-        requestEditCart({ id: id, type: "1" }).then(res => {
-            if (res.data.code === 200) {
-                let uid = sessionStorage.getItem("uid")
-                this.props.requestCartList(uid)
-            }
-        })
+    reduce(id, index) {
+        if (this.props.cartList[index].num === 1) {
+            return;
+        } else {
+            requestEditCart({ id: id, type: "1" }).then(res => {
+                if (res.data.code === 200) {
+                    let uid = sessionStorage.getItem("uid")
+                    this.props.requestCartList(uid)
+                }
+            })
+        }
+
     }
     //加
     add(id) {
@@ -122,7 +126,7 @@ class Cart extends Component {
                                             <img src={item.img} alt="" />
                                             <div className="info">
                                                 <p className="name">{item.goodsname}</p>
-                                                <span onClick={() => this.reduce(item.id)}>-</span>
+                                                <span onClick={() => this.reduce(item.id, index)}>-</span>
                                                 <span>{item.num}</span>
                                                 <span onClick={() => this.add(item.id)}>+</span>
                                                 <p className="allPrice">总价：{filterPrice(item.num * item.price)}</p>
@@ -171,7 +175,7 @@ class Cart extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    // console.log(state);
     return {
         cartList: cartList(state)
     }

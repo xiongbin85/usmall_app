@@ -13,7 +13,7 @@ function App() {
   return (
     <Switch>
       <Route path="/login" component={Login}></Route>
-      <MyRoute path="/register" component={Register}></MyRoute>
+      <Route path="/register" component={Register}></Route>
       <MyRoute path="/index" component={Index}></MyRoute>
       <MyRoute path="/proDetail" component={ProDetail}></MyRoute>
       <Redirect to="/login"></Redirect>
