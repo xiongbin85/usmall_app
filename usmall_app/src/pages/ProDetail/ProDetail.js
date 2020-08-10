@@ -27,6 +27,11 @@ class ProDetail extends Component {
         this.setState({
             show: !this.state.show
         })
+
+    }
+    //阻止冒泡
+    showCon(e) {
+        e.stopPropagation()
     }
     //选中属性的样式
     active(index) {
@@ -57,7 +62,7 @@ class ProDetail extends Component {
     render() {
         let { show } = this.state
         let { detail } = this.props
-        if(detail.description&&this.refs.des){
+        if (detail.description && this.refs.des) {
             this.refs.des.innerHTML = detail.description;
         }
         return (
@@ -91,8 +96,8 @@ class ProDetail extends Component {
                 </footer>
                 {
                     show ? (
-                        <div className="mask">
-                            <div className="con">
+                        <div className="mask" onClick={() => this.show()}>
+                            <div className="con" onClick={(e) => this.showCon(e)}  >
                                 <div className="img">
                                     <img src={detail.img} alt="" />
                                     <span>{detail.goodsname}</span>
