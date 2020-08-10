@@ -1,3 +1,6 @@
+.cart {
+    padding-bottom: 2rem;
+}
 .cart header {
     height: 1rem;
     background-color: orange;
@@ -171,7 +174,9 @@
 .cart .cart-foot input[type='checkbox'].edit:checked+.edit {
     background: url(../../assets/img/editor_hig.png) no-repeat;
 }
-
+.cart .cart-foot .allCount{
+    white-space: nowrap;
+}
 
 .cart .cart-foot .compute {
     border: none;

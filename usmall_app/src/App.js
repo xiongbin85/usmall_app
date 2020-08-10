@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom"
 //懒加载
 import lazyLoad from "./util/lazyLoad"
-
+import MyRoute from "./pages/MyRoute/MyRoute"
 
 const Login = lazyLoad(() => import("./pages/Login/Login"))
 const Register = lazyLoad(() => import("./pages/Register/Register"))
@@ -13,9 +13,9 @@ function App() {
   return (
     <Switch>
       <Route path="/login" component={Login}></Route>
-      <Route path="/register" component={Register}></Route>
-      <Route path="/index" component={Index}></Route>
-      <Route path="/proDetail" component={ProDetail}></Route>
+      <MyRoute path="/register" component={Register}></MyRoute>
+      <MyRoute path="/index" component={Index}></MyRoute>
+      <MyRoute path="/proDetail" component={ProDetail}></MyRoute>
       <Redirect to="/login"></Redirect>
     </Switch>
   );

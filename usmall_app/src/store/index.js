@@ -2,7 +2,8 @@
 import { createStore, applyMiddleware } from "redux"
 //使得action可以异步操作
 import thunk from "redux-thunk"
-import { requestIndexGoods, requestBanner, requestProList, requestCartList } from "../util/request"
+//数据请求
+import { requestIndexGoods, requestBanner, requestProList, requestCartList, requestDetail } from "../util/request"
 import { Component } from "react"
 
 //初始状态
@@ -10,7 +11,8 @@ const initState = {
     banner: [],
     proInfo: [],
     proList: [],
-    cartList: []
+    cartList: [],
+    proDetail: {}
 }
 
 //action creators
@@ -44,6 +46,23 @@ export const requestProInfoAction = () => {
         })
     }
 }
+//商品详情
+const getProDetailAction = (obj) => {
+    return { type: "getProDetail", detail: obj }
+}
+export const requestProDetailAction = (id) => {
+    return (dispatch, getState) => {
+        if (id === getState().proDetail.id) {
+            return
+        }
+        requestDetail({ id: id }).then(res => {
+            let list = res.data.list[0]
+            list.img = Component.prototype.$img + list.img
+            list.specsattr = JSON.parse(list.specsattr)
+            dispatch(getProDetailAction(list))
+        })
+    }
+}
 //商品列表
 const changeProListAction = (arr) => {
     return { type: "changeProList", list: arr }
@@ -63,12 +82,24 @@ export const requestProListAction = () => {
 const getCartListAction = (arr) => {
     return { type: "getCartList", list: arr }
 }
+//全选
+export const changeCheckedAction = (bool) => {
+    return { type: "changeChecked", bool }
+}
+//单选
+export const changeOneCheckedAction = (index) => {
+    return { type: "changeOneChecked", index }
+}
 export const requestCartListAction = (uid) => {
     return (dispatch, getState) => {
         requestCartList({ uid: uid }).then(res => {
             let list = res.data.list
+            if (!list) {
+                return
+            }
             list.forEach(item => {
                 item.img = Component.prototype.$img + item.img
+                item.checked = false
             })
             dispatch(getCartListAction(list))
         })
@@ -76,6 +107,7 @@ export const requestCartListAction = (uid) => {
 }
 //reducer 修改state
 const reducer = (state = initState, action) => {
+
     switch (action.type) {
         case "changeProInfo":
             return {
@@ -92,10 +124,33 @@ const reducer = (state = initState, action) => {
                 ...state,
                 proList: action.list
             }
+        //{type:"getProDetail",detail}
+        case "getProDetail":
+            return {
+                ...state,
+                proDetail: action.detail
+            }
         case "getCartList":
             return {
                 ...state,
                 cartList: action.list
+            }
+        case "changeChecked":
+            let cartList1 = [...state.cartList]
+            cartList1.forEach(item => {
+                item.checked = action.bool
+            })
+            return {
+                ...state,
+                cartList: cartList1
+            }
+        //{type:"changeOneChecked",index}
+        case "changeOneChecked":
+            let cartList2 = [...state.cartList]
+            cartList2[action.index].checked = !cartList2[action.index].checked
+            return {
+                ...state,
+                cartList: cartList2
             }
         default:
             return state;
@@ -106,6 +161,8 @@ const reducer = (state = initState, action) => {
 export const proInfo = (state) => state.proInfo
 //导出轮播图
 export const banner = (state) => state.banner
+//导出商品详情
+export const proDetail = (state) => state.proDetail
 //导出商品列表
 export const proList = (state) => state.proList
 //导出购物车列表

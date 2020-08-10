@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./Cart.css"
 import { connect } from 'react-redux'
-import { cartList, requestCartListAction } from '../../store'
+import { cartList, requestCartListAction, changeCheckedAction, changeOneCheckedAction } from '../../store'
 import cart from "../../assets/img/tab_shopping_nor.png"
 import { filterPrice } from "../../filter"
 import { requestEditCart, requestDelCart } from '../../util/request'
@@ -30,25 +30,34 @@ class Cart extends Component {
         this.setState({
             checkAll: e.target.checked
         })
+        this.props.changeChecked(e.target.checked)
+
     }
     //单选
-    selectOne(e) {
-
+    selectOne(index) {
+        this.props.changeOneChecked(index)
+        console.log(this.props.cartList);
+        let bool = this.props.cartList.every(item => item.checked)
+        console.log(bool);
+        this.setState({
+            checkAll: bool
+        })
     }
     //减
     reduce(id) {
         requestEditCart({ id: id, type: "1" }).then(res => {
             if (res.data.code === 200) {
-                this.setState({})
+                let uid = sessionStorage.getItem("uid")
+                this.props.requestCartList(uid)
             }
-
         })
     }
     //加
     add(id) {
         requestEditCart({ id: id, type: "2" }).then(res => {
             if (res.data.code === 200) {
-                this.setState({})
+                let uid = sessionStorage.getItem("uid")
+                this.props.requestCartList(uid)
             }
         })
     }
@@ -73,16 +82,23 @@ class Cart extends Component {
                             Toast.info(res.data.msg)
                         })
                         alertInstance.close();
+                        let uid = sessionStorage.getItem("uid")
+                        this.props.requestCartList(uid)
                     }
                 },
             ]
         );
-        this.setState({})
+
     }
 
     render() {
         let { edit, allPrice, checkAll } = this.state
         let { cartList } = this.props
+        cartList.forEach(item => {
+            if (item.checked) {
+                allPrice += item.num * item.price
+            }
+        })
         return (
             <div className="cart">
                 <header>
@@ -91,7 +107,7 @@ class Cart extends Component {
                 <main >
                     {
                         cartList.length > 0 ?
-                            cartList.map((item) => {
+                            cartList.map((item, index) => {
                                 return (
                                     <div key={item.id} className="item">
                                         <div className="top">
@@ -100,7 +116,7 @@ class Cart extends Component {
                                         </div>
                                         <div className={edit ? "bottom left" : "bottom"}>
                                             <div className="check">
-                                                <input type="checkbox" id={item.id} className="checkbox" onChange={(e) => this.selectOne(e)} />
+                                                <input type="checkbox" id={item.id} className="checkbox" onChange={() => this.selectOne(index)} checked={item.checked} />
                                                 <label htmlFor={item.id} className="checkbox"></label>
                                             </div>
                                             <img src={item.img} alt="" />
@@ -140,7 +156,7 @@ class Cart extends Component {
                                 <p>编辑</p>
                             </div>
                             <div>
-                                <p>合计：{filterPrice(allPrice)}</p>
+                                <p className="allCount">合计：{filterPrice(allPrice)}</p>
                                 <p>(不含运费)</p>
                             </div>
                             <div>
@@ -163,7 +179,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        requestCartList: (uid) => dispatch(requestCartListAction(uid))
+        requestCartList: (uid) => dispatch(requestCartListAction(uid)),
+        changeChecked: (bool) => dispatch(changeCheckedAction(bool)),
+        changeOneChecked: (info) => dispatch(changeOneCheckedAction(info))
     }
 }
 

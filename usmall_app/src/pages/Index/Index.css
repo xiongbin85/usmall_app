@@ -47,12 +47,12 @@
     background-size: contain;
 }
 
-.index footer div a i.cart {
+.index footer div a i.index-cart {
     background: url("../../assets/img/tab_shopping_nor.png") no-repeat;
     background-size: contain;
 }
 
-.index footer div a.active i.cart {
+.index footer div a.active i.index-cart {
     background: url("../../assets/img/tab_shopping_hig.png") no-repeat;
     background-size: contain;
 }
@@ -67,9 +67,10 @@
     background-size: contain;
 }
 
-.index footer div a span {
+.index footer div a p {
     flex: 1;
     line-height: 0.6rem;
+    white-space: nowrap;
 }
 
 .index footer div a.active span {

@@ -1,46 +1,41 @@
 import React, { Component } from 'react'
 import querystring from "querystring"
-import { requestDetail, requestAddCart } from '../../util/request'
+import { requestAddCart } from '../../util/request'
 import "./ProDetail.css"
 import { filterPrice } from "../../filter"
 import { Toast } from "antd-mobile"
-export default class ProDetail extends Component {
+import { connect } from 'react-redux'
+import { proDetail, requestProDetailAction } from '../../store'
+class ProDetail extends Component {
     constructor() {
         super()
         this.state = {
-            detail: {},
             show: false
         }
     }
     componentDidMount() {
         // console.log(this.props.location);
         let result = querystring.parse(this.props.location.search.slice(1))
-        // console.log(result);
-        requestDetail({ id: result.id }).then(res => {
-            let list = res.data.list[0]
-            list.img = this.$img + list.img
-            list.specsattr = JSON.parse(list.specsattr)
-            this.setState({
-                detail: list
-            })
-            this.refs.des.innerHTML = this.state.detail.description;
-            // console.log(this.state.detail);
-        })
+        this.props.requestProDetail(result.id)
     }
+    //返回上一层
     back() {
         this.props.history.go(-1)
     }
+    //加入购物车弹框的显示和隐藏
     show() {
         this.setState({
             show: !this.state.show
         })
     }
+    //选中属性的样式
     active(index) {
         for (let i = 0; i < this.refs.attr.children.length; i++) {
             this.refs.attr.children[i].className = ""
         }
         this.refs.attr.children[index].className = "active"
     }
+    //加入购物车
     add(id) {
         let uid = sessionStorage.getItem("uid");
         requestAddCart({
@@ -60,7 +55,11 @@ export default class ProDetail extends Component {
 
     }
     render() {
-        let { detail, show } = this.state
+        let { show } = this.state
+        let { detail } = this.props
+        if (detail.description && this.refs.des) {
+            this.refs.des.innerHTML = detail.description;
+        }
         return (
             <div className="detail">
                 <header>
@@ -117,3 +116,19 @@ export default class ProDetail extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        detail: proDetail(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        requestProDetail: (id) => dispatch(requestProDetailAction(id))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProDetail)
