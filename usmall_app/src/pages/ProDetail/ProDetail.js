@@ -57,7 +57,7 @@ class ProDetail extends Component {
     render() {
         let { show } = this.state
         let { detail } = this.props
-        if (detail.description && this.refs.des) {
+        if(detail.description&&this.refs.des){
             this.refs.des.innerHTML = detail.description;
         }
         return (

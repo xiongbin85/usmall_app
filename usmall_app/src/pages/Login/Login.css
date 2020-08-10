@@ -35,7 +35,7 @@
 .login main .login-tel input {
     height: 1rem;
     width: 5rem;
-    background-color: #F5F5F9;
+    background-color: #fff;
 }
 
 .login main .login-pass {
@@ -46,7 +46,7 @@
 .login main .login-pass input {
     height: 1rem;
     width: 5rem;
-    background-color: #F5F5F9;
+    background-color: #fff;
 }
 
 .login main p {

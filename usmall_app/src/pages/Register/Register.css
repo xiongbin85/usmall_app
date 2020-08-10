@@ -35,7 +35,7 @@
 .reg main .inp input {
     height: 1rem;
     width: 5rem;
-    background-color: #F5F5F9;
+    background-color: #fff;
 }
 
 .reg main button {

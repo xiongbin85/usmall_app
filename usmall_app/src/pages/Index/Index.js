@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, Redirect, NavLink } from "react-router-dom"
+import { Switch, Redirect, NavLink } from "react-router-dom"
 import lazyLoad from "../../util/lazyLoad"
 import "./Index.css"
 import MyRoute from "../MyRoute/MyRoute"
