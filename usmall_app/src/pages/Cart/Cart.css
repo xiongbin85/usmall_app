@@ -1,5 +1,6 @@
 .cart {
     padding-bottom: 2rem;
+    font-size: 0.3rem;
 }
 .cart header {
     height: 1rem;
@@ -49,6 +50,7 @@
     display: flex;
     width: 108vw;
     position: relative;
+    transition: all 1s;
 }
 
 .left {

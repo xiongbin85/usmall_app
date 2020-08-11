@@ -16,7 +16,7 @@ class Cart extends Component {
         }
     }
     componentDidMount() {
-        let uid = sessionStorage.getItem("uid")
+        let uid = JSON.parse(sessionStorage.getItem("user")).uid
         this.props.requestCartList(uid)
     }
     //编辑
@@ -37,19 +37,20 @@ class Cart extends Component {
     selectOne(index) {
         this.props.changeOneChecked(index)
         let bool = this.props.cartList.every(item => item.checked)
-        console.log(bool);
+        // console.log(bool);
         this.setState({
             checkAll: bool
         })
     }
     //减
     reduce(id, index) {
+        //数量减到一就不再减了
         if (this.props.cartList[index].num === 1) {
             return;
         } else {
             requestEditCart({ id: id, type: "1" }).then(res => {
                 if (res.data.code === 200) {
-                    let uid = sessionStorage.getItem("uid")
+                    let uid = JSON.parse(sessionStorage.getItem("user")).uid
                     this.props.requestCartList(uid)
                 }
             })
@@ -60,7 +61,7 @@ class Cart extends Component {
     add(id) {
         requestEditCart({ id: id, type: "2" }).then(res => {
             if (res.data.code === 200) {
-                let uid = sessionStorage.getItem("uid")
+                let uid = JSON.parse(sessionStorage.getItem("user")).uid
                 this.props.requestCartList(uid)
             }
         })
@@ -86,7 +87,7 @@ class Cart extends Component {
                             Toast.info(res.data.msg,1)
                         })
                         alertInstance.close();
-                        let uid = sessionStorage.getItem("uid")
+                        let uid = JSON.parse(sessionStorage.getItem("user")).uid
                         this.props.requestCartList(uid)
                     }
                 },

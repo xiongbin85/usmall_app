@@ -47,8 +47,8 @@ export default class Register extends Component {
         return (
             <div className="reg">
                 <header>
-                    <Link to="/login">返回</Link>
                     <h3>注册</h3>
+                    <Link to="/login">返回</Link>
                 </header>
                 <main>
                     <div className="inp ">手机号：<input type="text" value={user.phone} onChange={(e) => this.changeUser(e, "phone")} /></div>

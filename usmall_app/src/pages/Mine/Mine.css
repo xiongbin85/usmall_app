@@ -1,3 +1,6 @@
+.mine{
+    font-size: 0.3rem;
+}
 .mine header {
     height: 4rem;
     background: orange;
@@ -37,7 +40,8 @@
     position: absolute;
     left: 0.2rem;
     top: -0.24rem;
-    font-size: 0.08rem;
+    font-size: 0.12rem;
+    line-height: 0.36rem;
 }
 
 .mine header span {
@@ -116,7 +120,7 @@
     position: absolute;
     left: 0.24rem;
     top: -0.20rem;
-    font-size: 0.08rem;
+    font-size: 0.12rem;
     line-height: 0.36rem;
 }
 .mine .adress{

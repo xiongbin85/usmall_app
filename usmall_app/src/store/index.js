@@ -4,7 +4,6 @@ import { createStore, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 //数据请求
 import { requestIndexGoods, requestBanner, requestProList, requestCartList, requestDetail } from "../util/request"
-import { Component } from "react"
 
 //初始状态
 const initState = {
@@ -52,7 +51,7 @@ const getProDetailAction = (obj) => {
 }
 export const requestProDetailAction = (id) => {
     return (dispatch, getState) => {
-        if (id === getState().proDetail.id) {
+        if (Number(id) === getState().proDetail.id) {
             return
         }
         requestDetail({ id: id }).then(res => {
@@ -93,7 +92,7 @@ export const changeOneCheckedAction = (index) => {
 export const requestCartListAction = (uid) => {
     return (dispatch, getState) => {
         requestCartList({ uid: uid }).then(res => {
-            let list = res.data.list?res.data.list:[]
+            let list = res.data.list ? res.data.list : []
             list.forEach(item => {
                 // item.img = Component.prototype.$img + item.img
                 item.checked = false

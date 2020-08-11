@@ -3,19 +3,21 @@
     background-color: orange;
     color: #fff;
     font-size: 0.4rem;
+    position: relative;
 }
 
 .reg header h3 {
     line-height: 1rem;
-    float: left;
-    margin-left: 2.3rem;
+    width: 100%;
+    text-align: center;
 }
 
 .reg header a {
     color: #fff;
     line-height: 1rem;
-    float: left;
-    margin-left: 0.4rem;
+    position: absolute;
+    left: 0.4rem;
+    top: 0;
 }
 
 .reg main {

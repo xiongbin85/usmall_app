@@ -20,6 +20,7 @@
     line-height: 1rem;
     display: flex;
     flex-direction: column;
+    font-size: 0.2rem;
 }
 
 .index footer div a i {

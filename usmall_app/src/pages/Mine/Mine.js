@@ -2,7 +2,14 @@ import React, { Component } from 'react'
 import "./Mine.css"
 import img from "../../assets/img/1.jpg"
 export default class Mine extends Component {
+    constructor(){
+        super()
+        this.state={
+            username:JSON.parse(sessionStorage.getItem("user")).nickname
+        }
+    }
     render() {
+        let {username} = this.state
         return (
             <div className="mine">
                 <header>
@@ -12,7 +19,7 @@ export default class Mine extends Component {
                 </header>
                 <div>
                     <img src={img} alt="" />
-                    <p className="name">xxxx</p>
+                    <p className="name">{username}</p>
                     <p className="collect">
                         <i></i>
                         <span>我的收藏(5)</span>

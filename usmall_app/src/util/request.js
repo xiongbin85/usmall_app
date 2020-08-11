@@ -2,6 +2,15 @@
 import axios from "axios"
 import qs from "qs"
 
+//请求拦截
+axios.interceptors.request.use(config => {
+    if (config.url !== 'api/login' && config.url !== 'api/register') {
+        //后端要求要加请求头
+        config.headers.authorization = JSON.parse(sessionStorage.getItem("user")).token
+    }
+    console.log(config);
+    return config;
+})
 //响应拦截
 axios.interceptors.response.use(res => {
     console.log('本次请求的接口为：' + res.config.url);

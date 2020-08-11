@@ -16,15 +16,16 @@
 
 .detail header h3 {
     line-height: 1rem;
-    float: left;
-    margin-left: 2rem;
+    width: 100%;
+    text-align: center;
 }
 
 .detail header a {
     color: #fff;
     line-height: 1rem;
-    float: left;
-    margin-left: 0.4rem;
+    position: absolute;
+    left: 0.4rem;
+    top: 0;
 }
 
 .detail main img {
@@ -69,6 +70,7 @@
 .detail main .info .collect p {
     color: red;
     margin-top: 0.1rem;
+    font-size: 0.2rem;
 }
 
 .detail main .detail-price {
@@ -119,6 +121,7 @@
     text-align: center;
     color: #fff;
     float: right;
+    font-size: 0.3rem;
 }
 
 .detail .mask {
@@ -150,12 +153,14 @@
     margin-left: 0.4rem;
     margin-top: 0;
     color: #333;
+    font-size: 0.3rem;
 }
 
 .detail .mask .con p {
     font-size: 0.4rem;
     margin-top: 0.3rem;
     font-weight: bold;
+    font-size: 0.3rem;
 }
 
 .detail .mask .con .attr span {
@@ -168,6 +173,7 @@
     margin-top: 0.3rem;
     margin-left: 0.3rem;
     border-radius: 0.2rem;
+    font-size: 0.3rem;
 }
 
 .detail .mask .con .attr span.active {
@@ -184,5 +190,6 @@
     color: #fff;
     border: none;
     margin-top: 0.4rem;
-    margin-left: 2.4rem
+    margin-left: 2.4rem;
+    font-size: 0.3rem;
 }

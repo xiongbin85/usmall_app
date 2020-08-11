@@ -27,6 +27,7 @@
     border-left: 5px solid #F5F5F9;
     line-height: 0.8rem;
     text-align: center;
+    font-size: 0.3rem;
 }
 
 .proList main .proList-left ul li.active {
@@ -59,4 +60,5 @@
     bottom: 0;
     background-color: #1D84A7;
     color: white;
+    font-size: 0.2rem;
 }

@@ -17,6 +17,10 @@ class ProDetail extends Component {
         // console.log(this.props.location);
         let result = querystring.parse(this.props.location.search.slice(1))
         this.props.requestProDetail(result.id)
+        //第二次进入的缓存
+        if ( this.props.detail.description && this.refs.des) {
+            this.refs.des.innerHTML = this.props.detail.description;
+        }
     }
     //返回上一层
     back() {
@@ -42,19 +46,19 @@ class ProDetail extends Component {
     }
     //加入购物车
     add(id) {
-        let uid = sessionStorage.getItem("uid");
+        let uid = JSON.parse(sessionStorage.getItem("user")).uid
         requestAddCart({
             uid: uid,
             goodsid: id,
             num: 1
         }).then(res => {
             if (res.data.code === 200) {
-                Toast.info(res.data.msg,1)
+                Toast.info(res.data.msg, 1)
                 this.setState({
                     show: !this.state.show
                 })
             } else {
-                Toast.info(res.data.msg,1)
+                Toast.info(res.data.msg, 1)
             }
         })
 
@@ -68,7 +72,7 @@ class ProDetail extends Component {
         return (
             <div className="detail">
                 <header>
-                    <a onClick={() => this.back()}>返回</a>
+                    <a onClick={() => this.back()} href="javacript:;">返回</a>
                     <h3>商品详情</h3>
                 </header>
                 <main>
